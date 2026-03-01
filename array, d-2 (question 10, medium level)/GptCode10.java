@@ -1,3 +1,10 @@
+//i didnt know yet how to work with public List<List<Integer>> threeSum(int[] nums) type of function so
+//i asked gpt to change my code which returns value suitable for this tye of return function.
+//that did work a bit, but in the question, the elements can be in whatever order, which did not align
+//with my code so i straight asked for solution of the question and submitted it.it was accepted.
+//will visit this question later when i know how list and all work.
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
