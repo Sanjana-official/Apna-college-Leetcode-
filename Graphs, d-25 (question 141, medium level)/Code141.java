@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Solution {
+class Code141 {
 
     //dfs method
 
@@ -59,54 +59,54 @@ class Solution {
 
 
     // bfs method
-    // int n;
+    int n;
 
-    // private boolean bfs(Map<Integer, List<Integer>> graph, int start, int end) {
-    //     boolean[] visited = new boolean[n + 1];
-    //     Queue<Integer> queue = new LinkedList<>();
+    private boolean bfs(Map<Integer, List<Integer>> graph, int start, int end) {
+        boolean[] visited = new boolean[n + 1];
+        Queue<Integer> queue = new LinkedList<>();
 
-    //     queue.offer(start);
+        queue.offer(start);
 
-    //     while (!queue.isEmpty()) {
-    //         int curr = queue.poll();
+        while (!queue.isEmpty()) {
+            int curr = queue.poll();
 
-    //         if (curr == end) {
-    //             return true;
-    //         }
+            if (curr == end) {
+                return true;
+            }
 
-    //         visited[curr] = true;
+            visited[curr] = true;
 
-    //         for (int neighbor : graph.getOrDefault(curr, new ArrayList<>())) {
-    //             if (!visited[neighbor]) {
-    //                 queue.offer(neighbor);
-    //             }
-    //         }
-    //     }
+            for (int neighbor : graph.getOrDefault(curr, new ArrayList<>())) {
+                if (!visited[neighbor]) {
+                    queue.offer(neighbor);
+                }
+            }
+        }
 
-    //     return false;
-    // }
+        return false;
+    }
 
-    // public int[] findRedundantConnection(int[][] edges) {
-    //     Map<Integer, List<Integer>> graph = new HashMap<>();
-    //     n = edges.length;
+    public int[] findRedundantConnection(int[][] edges) {
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        n = edges.length;
 
-    //     for (int i = 0; i < n; i++) {
-    //         int u = edges[i][0];
-    //         int v = edges[i][1];
+        for (int i = 0; i < n; i++) {
+            int u = edges[i][0];
+            int v = edges[i][1];
 
-    //         // If both nodes already exist and a path already exists between them,
-    //         // then adding this edge creates a cycle.
-    //         if (graph.containsKey(u) &&
-    //             graph.containsKey(v) &&
-    //             bfs(graph, u, v)) {
+            // If both nodes already exist and a path already exists between them,
+            // then adding this edge creates a cycle.
+            if (graph.containsKey(u) &&
+                graph.containsKey(v) &&
+                bfs(graph, u, v)) {
 
-    //             return edges[i];
-    //         }
+                return edges[i];
+            }
 
-    //         graph.computeIfAbsent(u, k -> new ArrayList<>()).add(v);
-    //         graph.computeIfAbsent(v, k -> new ArrayList<>()).add(u);
-    //     }
+            graph.computeIfAbsent(u, k -> new ArrayList<>()).add(v);
+            graph.computeIfAbsent(v, k -> new ArrayList<>()).add(u);
+        }
 
-    //     return new int[0];
-    // }
+        return new int[0];
+    }
 }
