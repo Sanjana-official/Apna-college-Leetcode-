@@ -14,6 +14,4 @@ public class Code164 {
         }
         return dp.getOrDefault(s, 0);
     }
-} Code164 {
-    
-}
+} 
